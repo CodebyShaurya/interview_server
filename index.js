@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 app.use(cors())
-const Schema =require("./models/Questions")
+const Schema =require("./models/FrontendSchema")
 // mongodb connection
 const connectDB = async()=>{
     await mongoose.connect(`mongodb+srv://`+process.env.DB_USER+`:`+process.env.DB_PASS+`@interviewprepcluster.ssay4v6.mongodb.net/questions`);
@@ -24,7 +24,7 @@ app.get('/',async(req,res)=>{
         //     console.log(error);
         //     res.status(500).json({msg:"Unable to get questions"});
         // })
-        const data = await Schema.find({});
+        const data = await Schema.find();
     
             // Log the retrieved data
             console.log(data);

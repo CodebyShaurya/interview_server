@@ -5,12 +5,12 @@ const questionSchema = new mongoose.Schema({
   Question: { type: String, required: true }
 });
 
-const dbSchema = new mongoose.Schema({
+const SdeSchema = new mongoose.Schema({
   technology: { type: String, required: true },
   difficulty: { type: String, required: true },
   questions: [questionSchema]
 });
 
-const DbModel = mongoose.model('DbModel', dbSchema);
+const SDEModel = mongoose.model('SDEModel', SdeSchema, 'sde-questions');
 
-module.exports = DbModel;
+module.exports = SDEModel;
